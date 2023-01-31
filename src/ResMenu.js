@@ -1,16 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import './styles.css';
+import "./styles.css";
 import { Form, InputGroup, Row, Button, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useState } from "react"; //manage the form elements’ values
 
 const ResMenu = () => {
   const [form, setForm] = useState([
-    { menuItem: "", 
-    menuPrice: "", 
-    menuDesc: "" },
+    { menuItem: "", menuPrice: "", menuDesc: "" },
   ]);
 
-  
   const handleChange = (index, event) => {
     const values = [...form];
     if (event.target.name === "menuItem") {
@@ -26,10 +24,11 @@ const ResMenu = () => {
 
   const handleAddFields = () => {
     const values = [...form];
-    values.push({ 
-        menuItem: "", 
-        menuPrice: "", 
-        menuDesc: "" });
+    values.push({
+      menuItem: "",
+      menuPrice: "",
+      menuDesc: "",
+    });
     setForm(values);
   };
 
@@ -45,7 +44,6 @@ const ResMenu = () => {
   };
 
   return (
-    
     <Form className="container mt-3 mb-3">
       {form.map((data, i) => {
         return (
@@ -104,9 +102,15 @@ const ResMenu = () => {
           </Button>
         </Col>
       </Row>
-          <Row className="mb-3">
-         <Form.Group controlId="formGridCheckbox" className="col col-sm-6">
-           <Button
+      <Row className="mb-3">
+        <Form.Group controlId="formGridCheckbox" className="col col-sm-6">
+          <Link to="/">
+            <Button type="previous" className="me-4 btn btn-lg btn-block">
+              Previous
+            </Button>
+          </Link>
+
+          <Button
             type="submit"
             onClick={handleSubmit}
             className="me-4 btn btn-warning btn-lg btn-block"
@@ -115,8 +119,6 @@ const ResMenu = () => {
           </Button>
         </Form.Group>
       </Row>
-
-
     </Form>
   );
 };

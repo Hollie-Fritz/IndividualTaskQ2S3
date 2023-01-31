@@ -161,13 +161,6 @@ function ResInfo() {
       <Row className="mb-3">
         <Form.Group controlId="formGridCheckbox" className="col col-sm-6">
           <Button
-            type="submit"
-            onClick={submitButton}
-            className="me-4 btn btn-success btn-lg btn-block"
-          >
-            Submit
-          </Button>
-          <Button
             type="reset"
             onClick={resetButton}
             className="me-4 btn btn-danger btn-lg btn-block"
@@ -182,6 +175,14 @@ function ResInfo() {
               Next
               </Button>
           </Link>
+
+          <Button
+            type="submit"
+            onClick={submitButton}
+            className="me-4 btn btn-success btn-lg btn-block"
+          >
+            Submit
+          </Button>
         </Form.Group>
       </Row>
     </Form>
