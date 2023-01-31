@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 import { Form, InputGroup, Row, Button } from "react-bootstrap";
 import { useState } from "react"; //manage the form elements’ values
 
@@ -54,17 +55,15 @@ function ResInfo() {
             value={form.resName} //value – default value of component
             onChange={handleChange} //onChange – specifies the action to be taken when any change is made
             className="form-control" //className- Bootstrap classes used
-    
           />
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group controlId="phone" className="col col-sm-6">
-        <Form.Label>Phone Number</Form.Label>
+          <Form.Label>Phone Number</Form.Label>
           <InputGroup>
-          
             <InputGroup.Text id="basic-addon1">+1</InputGroup.Text>
-            
+
             <Form.Control
               aria-label="Phone Number"
               type="phone"
@@ -73,7 +72,6 @@ function ResInfo() {
               name="phoneNo"
               value={form.phoneNo}
               onChange={handleChange}
-  
             />
           </InputGroup>
         </Form.Group>
@@ -141,24 +139,22 @@ function ResInfo() {
           {/* provide a text label as a component */}
           <Form.Label>Restaurant Hours</Form.Label>
           <Form.Control
-           className="form-control" //className- Bootstrap classes used
+            className="form-control" //className- Bootstrap classes used
             type="hours" //type – declares the type of input we want
             name="resHours" //name – ID of the component used by JSX
             value={form.resHours} //value – default value of component
             onChange={handleChange} //onChange – specifies the action to be taken when any change is made
-           
           />
         </Form.Group>
         <Form.Group controlId="formCuisine" className="col col-sm-6">
           {/* provide a text label as a component */}
           <Form.Label>Restaurant Cuisine Type</Form.Label>
           <Form.Control
-           className="form-control" //className- Bootstrap classes used
+            className="form-control" //className- Bootstrap classes used
             type="cuisine" //type – declares the type of input we want
             name="resCuisine" //name – ID of the component used by JSX
             value={form.resCuisine} //value – default value of component
             onChange={handleChange} //onChange – specifies the action to be taken when any change is made
-           
           />
         </Form.Group>
       </Row>
@@ -176,8 +172,16 @@ function ResInfo() {
             onClick={resetButton}
             className="me-4 btn btn-danger btn-lg btn-block"
           >
-            Cancel
+            Reset
           </Button>
+
+          <Link to="/ResMenu">
+            <Button 
+            type="next"
+            className="me-4 btn btn-lg btn-block">
+              Next
+              </Button>
+          </Link>
         </Form.Group>
       </Row>
     </Form>
