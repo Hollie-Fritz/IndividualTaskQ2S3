@@ -57,8 +57,6 @@ function ResInfo() {
             className="form-control" //className- Bootstrap classes used
           />
         </Form.Group>
-      </Row>
-      <Row className="mb-3">
         <Form.Group controlId="phone" className="col col-sm-6">
           <Form.Label>Phone Number</Form.Label>
           <InputGroup>
@@ -169,11 +167,9 @@ function ResInfo() {
           </Button>
 
           <Link to="/ResMenu">
-            <Button 
-            type="next"
-            className="me-4 btn btn-lg btn-block">
+            <Button type="next" className="me-4 btn btn-lg btn-block">
               Next
-              </Button>
+            </Button>
           </Link>
 
           <Button
