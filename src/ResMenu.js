@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles.css";
 import { Form, InputGroup, Row, Button, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react"; //manage the form elements’ values
