@@ -3,11 +3,18 @@ import { Form, InputGroup, Row, Button, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react"; //manage the form elements’ values
 
+
 const ResMenu = () => {
+  //single state that holds an array object of data
   const [form, setForm] = useState([
-    { menuItem: "", menuPrice: "", menuDesc: "" },
+    { menuItem: "", 
+    menuPrice: "", 
+    menuDesc: "" },
   ]);
 
+  //handle change function to capture changes to input
+  //compare event names when called upon below with onChange
+  //then add the values to their respective keys in the object
   const handleChange = (index, event) => {
     const values = [...form];
     if (event.target.name === "menuItem") {
@@ -18,9 +25,14 @@ const ResMenu = () => {
       values[index].menuDesc = event.target.value;
     }
 
+    //update the setForm data with those values
     setForm(values);
   };
 
+  // adds form fields when called upon
+  // add new object to array
+  // update the state 
+  // as we map the "form", a new field should be added  
   const handleAddFields = () => {
     const values = [...form];
     values.push({
@@ -31,6 +43,7 @@ const ResMenu = () => {
     setForm(values);
   };
 
+  // remove form fields when called upon unless there is only one left
   const handleRemoveFields = () => {
     const values = [...form];
     if (values.length > 1) values.pop();
@@ -44,6 +57,7 @@ const ResMenu = () => {
 
   return (
     <Form className="container mt-3 mb-3">
+      {/* mapping the menu item data state within the form */}
       {form.map((data, i) => {
         return (
           <Row className="mb-3" key={i}>
@@ -55,6 +69,7 @@ const ResMenu = () => {
                 name="menuItem"
                 placeholder="Enter menu item name"
                 value={data.menuItem}
+                //upon input onChange will capture the data and send it to the handleChange function
                 onChange={(event) => handleChange(i, event)}
               ></Form.Control>
             </Form.Group>
@@ -93,9 +108,13 @@ const ResMenu = () => {
       })}
       <Row>
         <Col className="pt-3 d-flex justify-content-between">
+          {/* button to add another iteration of the form */}
+          {/* onClick event calls on handleAddFields to add another iteration of menu item fields */}
           <Button variant="success" onClick={handleAddFields}>
             Add More
           </Button>
+          {/* button to remove iteration of the form */}
+          {/* onClick calls upon handleRemoveFields to remove an iteration */}
           <Button variant="danger" onClick={handleRemoveFields}>
             Remove
           </Button>
