@@ -49,7 +49,7 @@ function PersistResForm() {
       // previous button disabled if on page 0
         disabled={page === 0}
         onClick={() => {
-          // enables prev button to work by decrementing 
+          // enables prev button to work by decrementing
           setPage((currPage) => currPage - 1);
         }}
       >
@@ -66,7 +66,7 @@ function PersistResForm() {
           }
         }}
       >
-        {/* Conditionally render the button to display submit 
+        {/* Conditionally render the button to display submit
         on the last page and next on all other pages */}
         {page === FormTitles.length - 1 ? "Submit" : "Next"}
       </Button>
