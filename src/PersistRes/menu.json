@@ -1,10 +1,9 @@
-{
-  "menu": [
+[
     {
       "menuItem": "Sui-Kau Noodle Soup",
 	  "menuPrice": "13",
       "menuDesc": "Noodles and broth."
-      
+
     },
     {
       "menuItem": "Beef Brisket Noodle Soup",
@@ -17,4 +16,3 @@
       "menuDesc": "Rice porridge with beef"
     }
 	]
-	}

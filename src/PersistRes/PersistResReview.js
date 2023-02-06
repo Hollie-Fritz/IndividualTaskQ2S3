@@ -1,4 +1,5 @@
 import Card from "react-bootstrap/Card";
+import Menu from './menu.json';
 
 function PersistResReview() {
   return (
@@ -16,11 +17,15 @@ function PersistResReview() {
       </Card>
       <Card>
         <Card.Header as="h3">Menu</Card.Header>
-        <Card.Body>
-          <Card.Title>menuItem</Card.Title>
-          <Card.Text>menuPrice</Card.Text>
-          <Card.Text>menuDescription</Card.Text>
-        </Card.Body>
+        {Menu && Menu.map((menu) => {
+            return (
+              <div className="menuItems" key={menu.menuItem}>
+                <Card.Title>{menu.menuItem}</Card.Title>
+                <Card.Text>{menu.menuDesc}</Card.Text>
+                <Card.Text>Price: {menu.menuPrice}</Card.Text>
+              </div>
+            );
+          })}
       </Card>
     </div>
   );
