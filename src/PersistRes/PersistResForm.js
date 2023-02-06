@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PersistResInfo from "./PersistResInfo";
 import PersistResMenu from "./PersistResMenu";
+import PersistResReview from "./PersistResReview";
 import { Button } from "react-bootstrap";
 
 //Source video: https://www.youtube.com/watch?v=wOxP4k9f5rk
@@ -25,7 +26,7 @@ function PersistResForm() {
   });
 
   //titles that appear at the top of the form
-  const FormTitles = ["Restaurant Information", "Restaurant Menu"];
+  const FormTitles = ["Restaurant Information", "Restaurant Menu", "Review Information"];
 
   //check which page you are in
   //return a component based on which page we are in ex: ResInfo or ResMenu
@@ -33,8 +34,10 @@ function PersistResForm() {
   const PageDisplay = () => {
     if (page === 0) {
       return <PersistResInfo formData={formData} setFormData={setFormData} />;
-    } else {
+    } else if (page === 1) {
       return <PersistResMenu formData={formData} setFormData={setFormData} />;
+    } else {
+      return <PersistResReview formData={formData} setFormData={setFormData} />;
     }
   };
 

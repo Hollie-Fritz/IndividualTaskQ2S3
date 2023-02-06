@@ -1,0 +1,20 @@
+{
+  "menu": [
+    {
+      "menuItem": "Sui-Kau Noodle Soup",
+	  "menuPrice": "13",
+      "menuDesc": "Noodles and broth."
+      
+    },
+    {
+      "menuItem": "Beef Brisket Noodle Soup",
+	  "menuPrice": "14",
+      "menuDesc": "Beef brisket and noodles."
+    },
+    {
+      "menuItem": "Beef Congee",
+	  "menuPrice": "12",
+      "menuDesc": "Rice porridge with beef"
+    }
+	]
+	}
