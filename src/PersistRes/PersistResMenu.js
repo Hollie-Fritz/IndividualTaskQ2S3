@@ -17,6 +17,7 @@ function PersistResMenu({ menuItems, setMenuItems }) {
 
   const handleChange = (index, e) => {
     const updatedMenuItems = [...menuItems];
+    //if the input is not a number for menuPrice then do not allow it
     if (e.target.name === 'menuPrice' && isNaN(e.target.value)){
       return;
     }
