@@ -22,6 +22,8 @@ function PersistResForm() {
     city: "",
     usstate: "",
     zip: "",
+    openhours: "",
+    closehours: "",
     menu: { menuItem: "", menuPrice: "", menuDesc: "" },
   });
 

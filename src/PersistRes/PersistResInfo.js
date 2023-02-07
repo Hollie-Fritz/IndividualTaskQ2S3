@@ -17,7 +17,7 @@ function PersistResInfo({ formData, setFormData }) {
             name="resName" //name – ID of the component used by JSX, must be the same as the value
             value={formData.resName}
             onChange={(event) =>
-            setFormData({ ...formData, resName: event.target.value })
+              setFormData({ ...formData, resName: event.target.value })
             }
             className="form-control" //className- Bootstrap classes used
           />
@@ -34,9 +34,9 @@ function PersistResInfo({ formData, setFormData }) {
               className="form-control"
               name="phoneNo"
               value={formData.phoneNo}
-            onChange={(event) =>
-            setFormData({ ...formData, phoneNo: event.target.value })
-            }
+              onChange={(event) =>
+                setFormData({ ...formData, phoneNo: event.target.value })
+              }
             />
           </InputGroup>
         </Form.Group>
@@ -50,7 +50,7 @@ function PersistResInfo({ formData, setFormData }) {
             name="address1"
             value={formData.address1}
             onChange={(event) =>
-            setFormData({ ...formData, address1: event.target.value })
+              setFormData({ ...formData, address1: event.target.value })
             }
           />
         </Form.Group>
@@ -61,7 +61,7 @@ function PersistResInfo({ formData, setFormData }) {
             name="address2"
             value={formData.address2}
             onChange={(event) =>
-            setFormData({ ...formData, address2: event.target.value })
+              setFormData({ ...formData, address2: event.target.value })
             }
             type="text"
           />
@@ -76,7 +76,7 @@ function PersistResInfo({ formData, setFormData }) {
             name="city"
             value={formData.city}
             onChange={(event) =>
-            setFormData({ ...formData, city: event.target.value })
+              setFormData({ ...formData, city: event.target.value })
             }
           />
         </Form.Group>
@@ -88,9 +88,8 @@ function PersistResInfo({ formData, setFormData }) {
             name="usstate"
             value={formData.usstate}
             onChange={(event) =>
-            setFormData({ ...formData, usstate: event.target.value })
-            }
-          >
+              setFormData({ ...formData, usstate: event.target.value })
+            }>
             <option value="Choose...">Choose...</option>
             <option value="WA">WA</option>
           </Form.Select>
@@ -103,26 +102,90 @@ function PersistResInfo({ formData, setFormData }) {
             name="zip"
             value={formData.zip}
             onChange={(event) =>
-            setFormData({ ...formData, zip: event.target.value })
+              setFormData({ ...formData, zip: event.target.value })
             }
           />
         </Form.Group>
       </Row>
       <Row className="mb-3">
-        {/* Form.Group to group individual components into one component.  */}
-        <Form.Group controlId="formHours" className="col col-sm-6">
-          {/* provide a text label as a component */}
-          <Form.Label>Restaurant Hours</Form.Label>
-          <Form.Control
-            className="form-control" //className- Bootstrap classes used
-            type="hours" //type – declares the type of input we want
-            name="resHours" //name – ID of the component used by JSX
-            value={formData.resHours}
+        <Form.Group controlId="formOpenHours" className="col col-sm-4">
+          <Form.Label>Opening Hours</Form.Label>
+          <Form.Select
+            defaultValue="Choose..."
+            className="form-control"
+            name="openhours"
+            value={formData.openhours}
             onChange={(event) =>
-            setFormData({ ...formData, resHours: event.target.value })
-            }
-          />
+              setFormData({ ...formData, openhours: event.target.value })
+            }>
+            <option value="Choose...">Choose...</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+          </Form.Select>
         </Form.Group>
+
+        <Form.Group controlId="formCloseHours" className="col col-sm-4">
+          <Form.Label>Closing Hours</Form.Label>
+          <Form.Select
+            defaultValue="Choose..."
+            className="form-control"
+            name="closehours"
+            value={formData.closehours}
+            onChange={(event) =>
+              setFormData({ ...formData, closehours: event.target.value })
+            }>
+            <option value="Choose...">Choose...</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+          </Form.Select>
+        </Form.Group>
+
         <Form.Group controlId="formCuisine" className="col col-sm-6">
           {/* provide a text label as a component */}
           <Form.Label>Restaurant Cuisine Type</Form.Label>
@@ -132,12 +195,12 @@ function PersistResInfo({ formData, setFormData }) {
             name="resCuisine" //name – ID of the component used by JSX
             value={formData.resCuisine}
             onChange={(event) =>
-            setFormData({ ...formData, resCuisine: event.target.value })
+              setFormData({ ...formData, resCuisine: event.target.value })
             }
           />
         </Form.Group>
       </Row>
-      </Form>
+    </Form>
   );
 }
 
