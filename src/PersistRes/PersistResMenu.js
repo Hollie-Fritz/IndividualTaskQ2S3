@@ -1,93 +1,75 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Form, InputGroup, Row, Button, Col } from "react-bootstrap";
+import { Form, InputGroup, Row, Button } from "react-bootstrap";
 
-function PersistResMenu({ formData, setFormData }) {
-  // adds form fields when called upon
-  // add new object to array
-  // update the state
-  // as we map the "form", a new field should be added
-  const handleAddFields = () => {
-    const values = [...formData];
-    values.push({
-      menuItem: "",
-      menuPrice: "",
-      menuDesc: "",
-    });
-    setFormData(values);
+function PersistResMenu({ menuItems, setMenuItems }) {
+
+
+  const handleAddItem = () => {
+    setMenuItems([...menuItems, { menuItem: "", menuPrice: "", menuDesc: "" }]);
   };
 
-  // remove form fields when called upon unless there is only one left
-  const handleRemoveFields = () => {
-    const values = [...formData];
-    if (values.length > 1) values.pop();
-    setFormData(values);
+    const handleRemoveFields = () => {
+      const values = [...menuItems];
+      if (values.length > 1) values.pop();
+      setMenuItems(values);
+    };
+
+  const handleChange = (index, e) => {
+    const updatedMenuItems = [...menuItems];
+    if (e.target.name === 'menuPrice' && isNaN(e.target.value)){
+      return;
+    }
+    updatedMenuItems[index][e.target.name] = e.target.value;
+    setMenuItems(updatedMenuItems);
   };
 
   return (
     <Form className="container mt-3 mb-3">
-      <Row className="mb-3">
-        <Form.Group controlId="formItem" className="col col-sm-4">
-          <Form.Label>Menu Item</Form.Label>
-          <Form.Control
-            className="form-control"
-            type="text"
-            name="menuItem"
-            placeholder="Enter menu item name"
-            value={formData.menuItem}
-            onChange={(e) => {
-              setFormData({ ...formData, menuItem: e.target.value });
-            }}></Form.Control>
-        </Form.Group>
-
-        <Form.Group controlId="formItemPrice" className="col col-sm-4">
-          <Form.Label>Price</Form.Label>
-          <InputGroup className="mb-3">
-            <InputGroup.Text>$</InputGroup.Text>
+      {menuItems.map((menu, index) => (
+        <Row className="mb-3" key={index}>
+          <Form.Group controlId="formItem" className="col col-sm-4">
+            <Form.Label>Menu Item</Form.Label>
             <Form.Control
               className="form-control"
               type="text"
-              name="menuPrice"
-              placeholder="Enter Item Price"
-              value={formData.menuPrice}
-              onChange={(e) => {
-                setFormData({ ...formData, menuPrice: e.target.value });
-              }}
-            />
-          </InputGroup>
-        </Form.Group>
-
-        <Form.Group controlId="formMenuDesc" className="col col-sm-4">
-          <Form.Label>Menu Item Description</Form.Label>
-          <InputGroup>
+              name="menuItem"
+              placeholder="Enter menu item name"
+              value={menu.menuItem}
+              onChange={(e) => handleChange(index, e)}></Form.Control>
+          </Form.Group>
+          <Form.Group controlId="formItemPrice" className="col col-sm-4">
+            <Form.Label>Price</Form.Label>
+            <InputGroup className="mb-3">
+              <Form.Control
+                className="form-control"
+                type="text"
+                name="menuPrice"
+                placeholder="Enter price"
+                value={menu.menuPrice}
+                onChange={(e) => handleChange(index, e)}></Form.Control>
+            </InputGroup>
+          </Form.Group>
+          <Form.Group controlId="formItemDesc" className="col col-sm-4">
+            <Form.Label>Description</Form.Label>
             <Form.Control
-              as="textarea"
-              aria-label="Menu Description"
               className="form-control"
-              placeholder="Menu item description"
+              type="text"
               name="menuDesc"
-              value={formData.menuDesc}
-              onChange={(e) => {
-                setFormData({ ...formData, menuDesc: e.target.value });
-              }}
-            />
-          </InputGroup>
-        </Form.Group>
-      </Row>
-      <Row>
-        <Col className="pt-3 d-flex justify-content-between">
-          {/* button to add another iteration of the form */}
-          {/* onClick event calls on handleAddFields to add another iteration of menu item fields */}
-          <Button variant="success" onClick={handleAddFields}>
-            Add More
-          </Button>
-          {/* button to remove iteration of the form */}
-          {/* onClick calls upon handleRemoveFields to remove an iteration */}
-          <Button variant="danger" onClick={handleRemoveFields}>
-            Remove
-          </Button>
-        </Col>
-      </Row>
+              placeholder="Enter menu item description"
+              value={menu.menuDesc}
+              onChange={(e) => handleChange(index, e)}></Form.Control>
+          </Form.Group>
+        </Row>
+      ))}
+      <Button variant="primary" onClick={handleAddItem}>
+        Add Item
+      </Button>
+      {/* button to remove iteration of the form */}
+      {/* onClick calls upon handleRemoveFields to remove an iteration */}
+      <Button variant="danger" onClick={handleRemoveFields}>
+        Remove
+      </Button>
     </Form>
   );
 }

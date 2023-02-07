@@ -31,13 +31,4 @@ function PersistResReview() {
   );
 }
 
-
-
 export default PersistResReview;
-
-
-/*Menu display:
-Menu Item name: menuItem , Price: menuPrice
-Description: menuDescription
-//repeat until end of menu
- */

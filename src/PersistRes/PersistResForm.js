@@ -15,7 +15,6 @@ function PersistResForm() {
   const [formData, setFormData] = useState({
     resName: "",
     phoneNo: "",
-    resHours: "",
     resCuisine: "",
     address1: "",
     address2: "",
@@ -24,8 +23,11 @@ function PersistResForm() {
     zip: "",
     openhours: "",
     closehours: "",
-    menu: { menuItem: "", menuPrice: "", menuDesc: "" },
   });
+
+   const [menuItems, setMenuItems] = useState([
+     { menuItem: "", menuPrice: "", menuDesc: "" },
+   ]);
 
   //titles that appear at the top of the form
   const FormTitles = ["Restaurant Information", "Restaurant Menu", "Review Information"];
@@ -37,7 +39,7 @@ function PersistResForm() {
     if (page === 0) {
       return <PersistResInfo formData={formData} setFormData={setFormData} />;
     } else if (page === 1) {
-      return <PersistResMenu formData={formData} setFormData={setFormData} />;
+      return <PersistResMenu menuItems={menuItems} setMenuItems={setMenuItems} />;
     } else {
       return <PersistResReview formData={formData} setFormData={setFormData} />;
     }
@@ -65,6 +67,7 @@ function PersistResForm() {
           if (page === FormTitles.length - 1) {
             //logs the data
             console.log(formData);
+            console.log(menuItems);
           } else {
             // enables next button to work by incrementing
             setPage((currPage) => currPage + 1);
