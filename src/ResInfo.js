@@ -7,7 +7,8 @@ function ResInfo() {
   const [form, setForm] = useState({
     resName: "",
     phoneNo: "",
-    resHours: "",
+    openhours: "",
+    closehours: "",
     resCuisine: "",
     address1: "",
     address2: "",
@@ -31,7 +32,8 @@ function ResInfo() {
     setForm({
       resName: "",
       phoneNo: "",
-      resHours: "",
+      openhours: "",
+      closehours: "",
       resCuisine: "",
       address1: "",
       address2: "",
@@ -114,8 +116,7 @@ function ResInfo() {
             className="form-control"
             name="usstate"
             value={form.usstate}
-            onChange={handleChange}
-          >
+            onChange={handleChange}>
             <option value="Choose...">Choose...</option>
             <option value="WA">WA</option>
           </Form.Select>
@@ -132,17 +133,78 @@ function ResInfo() {
         </Form.Group>
       </Row>
       <Row className="mb-3">
-        {/* Form.Group to group individual components into one component.  */}
-        <Form.Group controlId="formHours" className="col col-sm-6">
-          {/* provide a text label as a component */}
-          <Form.Label>Restaurant Hours</Form.Label>
-          <Form.Control
-            className="form-control" //className- Bootstrap classes used
-            type="hours" //type – declares the type of input we want
-            name="resHours" //name – ID of the component used by JSX
-            value={form.resHours} //value – default value of component
-            onChange={handleChange} //onChange – specifies the action to be taken when any change is made
-          />
+        <Form.Group controlId="formOpenHours" className="col col-sm-4">
+          <Form.Label>Opening Hours</Form.Label>
+          <Form.Select
+            defaultValue="Choose..."
+            className="form-control"
+            name="openhours"
+            value={form.openhours}
+            onChange={handleChange}>
+            <option value="Choose...">Choose...</option>
+            <option value="0">00:00</option>
+            <option value="1">01:00</option>
+            <option value="2">02:00</option>
+            <option value="3">03:00</option>
+            <option value="4">04:00</option>
+            <option value="5">05:00</option>
+            <option value="6">06:00</option>
+            <option value="7">07:00</option>
+            <option value="8">08:00</option>
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+            <option value="20">20:00</option>
+            <option value="21">21:00</option>
+            <option value="22">22:00</option>
+            <option value="23">23:00</option>
+            <option value="24">24:00</option>
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group controlId="formCloseHours" className="col col-sm-4">
+          <Form.Label>Closing Hours</Form.Label>
+          <Form.Select
+            defaultValue="Choose..."
+            className="form-control"
+            name="closehours"
+            value={form.closehours}
+            onChange={handleChange}>
+            <option value="Choose...">Choose...</option>
+            <option value="0">00:00</option>
+            <option value="1">01:00</option>
+            <option value="2">02:00</option>
+            <option value="3">03:00</option>
+            <option value="4">04:00</option>
+            <option value="5">05:00</option>
+            <option value="6">06:00</option>
+            <option value="7">07:00</option>
+            <option value="8">08:00</option>
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+            <option value="20">20:00</option>
+            <option value="21">21:00</option>
+            <option value="22">22:00</option>
+            <option value="23">23:00</option>
+            <option value="24">24:00</option>
+          </Form.Select>
         </Form.Group>
         <Form.Group controlId="formCuisine" className="col col-sm-6">
           {/* provide a text label as a component */}
@@ -161,8 +223,7 @@ function ResInfo() {
           <Button
             type="reset"
             onClick={resetButton}
-            className="me-4 btn btn-danger btn-lg btn-block"
-          >
+            className="me-4 btn btn-danger btn-lg btn-block">
             Reset
           </Button>
 
@@ -175,8 +236,7 @@ function ResInfo() {
           <Button
             type="submit"
             onClick={submitButton}
-            className="me-4 btn btn-success btn-lg btn-block"
-          >
+            className="me-4 btn btn-success btn-lg btn-block">
             Submit
           </Button>
         </Form.Group>
