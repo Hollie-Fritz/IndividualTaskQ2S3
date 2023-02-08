@@ -11,7 +11,7 @@ function PersistResForm() {
   //will mutate the variable setPage
   //useState(0) = ResInfo
   const [page, setPage] = useState(0);
-  //state object that contains all the different fields
+  //state object that contains all the different fields for ResInfo
   const [formData, setFormData] = useState({
     resName: "",
     phoneNo: "",
@@ -25,21 +25,32 @@ function PersistResForm() {
     closehours: "",
   });
 
-   const [menuItems, setMenuItems] = useState([
-     { menuItem: "", menuPrice: "", menuDesc: "" },
-   ]);
+  //state object that contains all the fields for ResMenu
+  const [menuItems, setMenuItems] = useState([
+    { menuItem: "",
+     menuPrice: "",
+      menuDesc: "" },
+  ]);
 
-  //titles that appear at the top of the form
-  const FormTitles = ["Restaurant Information", "Restaurant Menu", "Review Information"];
+  //titles that appear at the top left of the form
+  const FormTitles = [
+    "Restaurant Information",
+    "Restaurant Menu",
+    "Review Information",
+  ];
 
   //check which page you are in
   //return a component based on which page we are in ex: ResInfo or ResMenu
   //formData prop will keep the form persisting throughout
   const PageDisplay = () => {
     if (page === 0) {
+      // keep restauraunt info persistent even when navigating to a new page
       return <PersistResInfo formData={formData} setFormData={setFormData} />;
     } else if (page === 1) {
-      return <PersistResMenu menuItems={menuItems} setMenuItems={setMenuItems} />;
+      return (
+        //keep the menu items persistent when navigating away from page
+        <PersistResMenu menuItems={menuItems} setMenuItems={setMenuItems} />
+      );
     } else {
       return <PersistResReview formData={formData} setFormData={setFormData} />;
     }
@@ -53,13 +64,12 @@ function PersistResForm() {
       <div className="body">{PageDisplay()}</div>
 
       <Button
-      // previous button disabled if on page 0
+        // previous button disabled if on page 0
         disabled={page === 0}
         onClick={() => {
           // enables prev button to work by decrementing
           setPage((currPage) => currPage - 1);
-        }}
-      >
+        }}>
         Prev
       </Button>
       <Button
@@ -72,8 +82,7 @@ function PersistResForm() {
             // enables next button to work by incrementing
             setPage((currPage) => currPage + 1);
           }
-        }}
-      >
+        }}>
         {/* Conditionally render the button to display submit
         on the last page and next on all other pages */}
         {page === FormTitles.length - 1 ? "Submit" : "Next"}
