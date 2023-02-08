@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, InputGroup, Row, Button } from "react-bootstrap";
 
+//2nd page of restaurant owner's form, contains the form for menu items
 function PersistResMenu({ menuItems, setMenuItems }) {
   //update and set the menu form items
   const handleChange = (index, e) => {

@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Menu from "./menu.json";
 
+//testing data populating from json
 function PersistResReview() {
   return (
     <div>

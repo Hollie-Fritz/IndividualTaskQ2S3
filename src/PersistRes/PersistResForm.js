@@ -5,7 +5,7 @@ import PersistResReview from "./PersistResReview";
 import { Button } from "react-bootstrap";
 
 //Source video: https://www.youtube.com/watch?v=wOxP4k9f5rk
-//This file is a container for all the steps
+//This file is a container for all the steps of the restaurant owner webpage creator form
 function PersistResForm() {
   //page keeps track of which step we are on
   //will mutate the variable setPage

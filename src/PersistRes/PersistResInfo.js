@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, InputGroup, Row } from "react-bootstrap";
 
+//form for restaurant info such as name, phone number and address
 function PersistResInfo({ formData, setFormData }) {
   return (
     //using ‘container’ and ‘mb-3’ bootstrap classes
@@ -16,6 +17,7 @@ function PersistResInfo({ formData, setFormData }) {
             type="resName" //type – declares the type of input we want
             name="resName" //name – ID of the component used by JSX, must be the same as the value
             value={formData.resName}
+            // persist the entered information by saving the entered data
             onChange={(event) =>
               setFormData({ ...formData, resName: event.target.value })
             }
@@ -25,8 +27,8 @@ function PersistResInfo({ formData, setFormData }) {
         <Form.Group controlId="phone" className="col col-sm-6">
           <Form.Label>Phone Number</Form.Label>
           <InputGroup>
+          {/* country code 1 for US */}
             <InputGroup.Text id="basic-addon1">+1</InputGroup.Text>
-
             <Form.Control
               aria-label="Phone Number"
               type="phone"
@@ -167,7 +169,6 @@ function PersistResInfo({ formData, setFormData }) {
             <option value="22:30">22:30</option>
             <option value="23">23:00</option>
             <option value="23:30">23:30</option>
-            <option value="24">24:00</option>
           </Form.Select>
         </Form.Group>
 
@@ -230,7 +231,6 @@ function PersistResInfo({ formData, setFormData }) {
             <option value="22:30">22:30</option>
             <option value="23">23:00</option>
             <option value="23:30">23:30</option>
-            <option value="24">24:00</option>
           </Form.Select>
         </Form.Group>
 
