@@ -29,7 +29,7 @@ function PersistResMenu({ menuItems, setMenuItems }) {
   };
 
   //function to remove form items unless there is only one remaining
-  const handleRemoveFields = () => {
+  const handleRemoveItem = () => {
     const values = [...menuItems];
     if (values.length > 1) values.pop();
     setMenuItems(values);
@@ -82,8 +82,8 @@ function PersistResMenu({ menuItems, setMenuItems }) {
         Add Item
       </Button>
       {/* button to remove iteration of the form */}
-      {/* onClick calls upon handleRemoveFields to remove an iteration */}
-      <Button variant="danger" onClick={handleRemoveFields}>
+      {/* onClick calls upon handleRemoveItem to remove an iteration */}
+      <Button variant="danger" onClick={handleRemoveItem}>
         Remove
       </Button>
     </Form>
